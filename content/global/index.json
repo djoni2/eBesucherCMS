@@ -1,0 +1,142 @@
+{
+  "header": {
+    "color": "default",
+    "LogoImage": "/uploads/logo.png",
+    "nav": [
+      {
+        "href": "",
+        "label": "Earn Money"
+      },
+      {
+        "href": "buy-advertising",
+        "label": "Buy Advertising"
+      },
+      {
+        "href": "posts",
+        "label": "Infos"
+      }
+    ],
+    "Button": {
+      "label": "Sign up",
+      "type": "button",
+      "link": "/sign-up"
+    }
+  },
+  "footer": {
+    "image": {
+      "src": "/uploads/footer_logo.png",
+      "alt": "footer logo",
+      "url": "/"
+    },
+    "copy_right": "2002-2023",
+    "tagline": "More visitors for your website",
+    "language_list": [
+      {
+        "label": "Deutsch",
+        "link": "https://www.ebesucher.de/home"
+      },
+      {
+        "label": "English",
+        "link": "https://www.ebesucher.com/"
+      }
+    ],
+    "social": {
+      "facebook": "/",
+      "twitter": "/",
+      "instagram": "/",
+      "youtube": "/"
+    },
+    "footer_links": [
+      {
+        "headLine": "Company",
+        "footer_links": [
+          {
+            "sub_links": "Earn Money",
+            "url": "/"
+          },
+          {
+            "sub_links": "Buy traffic",
+            "url": "/"
+          },
+          {
+            "sub_links": "Privacy Policy",
+            "url": "/"
+          },
+          {
+            "sub_links": "Terms for Users",
+            "url": "/"
+          },
+          {
+            "sub_links": "Terms for Advertisers",
+            "url": "/"
+          },
+          {
+            "sub_links": "Imprint",
+            "url": "/"
+          }
+        ],
+        "link": "/"
+      },
+      {
+        "headLine": "Buy Targeted Visits",
+        "footer_links": [
+          {
+            "sub_links": "New visitors for your website",
+            "url": "/"
+          },
+          {
+            "sub_links": "Buy website visitors",
+            "url": "/"
+          },
+          {
+            "sub_links": "Buy online advertising",
+            "url": "/"
+          },
+          {
+            "sub_links": "Free Online Advertising",
+            "url": "/"
+          },
+          {
+            "sub_links": "Buy US Traffic",
+            "url": "/"
+          },
+          {
+            "sub_links": "Traffic Exchange",
+            "url": "/"
+          }
+        ],
+        "link": "/"
+      },
+      {
+        "headLine": "Support",
+        "footer_links": [
+          {
+            "sub_links": "Contact and help",
+            "url": ""
+          },
+          {
+            "sub_links": "FAQ for Users"
+          },
+          {
+            "sub_links": "FAQ for Advertisers"
+          },
+          {
+            "sub_links": "Message Board"
+          },
+          {
+            "sub_links": "Help"
+          },
+          {
+            "sub_links": "News"
+          }
+        ],
+        "link": "/"
+      }
+    ]
+  },
+  "theme": {
+    "color": "blue",
+    "font": "sans",
+    "darkMode": "system"
+  }
+}
