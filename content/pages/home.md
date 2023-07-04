@@ -1,5 +1,5 @@
 ---
-title: Ebesucher
+title: Ebesucher-Home
 blocks:
   - image:
       src: /uploads/Frame%20243.png
@@ -20,6 +20,41 @@ blocks:
         image:
           src: /uploads/bank.png
           alt: Job & Business
+        link: /
+      - label: Free
+        image:
+          src: /uploads/tags.png
+          alt: free
+        link: /
+      - label: Shopping & Ecommerce
+        image:
+          src: /uploads/shopping.png
+          alt: shopping & ecommerce
+        link: /
+      - label: Webmasters & Homepages
+        image:
+          src: /uploads/code.png
+          alt: Webmasters & Homepages
+        link: /
+      - label: Magazine & Books
+        image:
+          src: /uploads/read.png
+          alt: Magazine & Books
+        link: /
+      - label: Telecom & Cell Phone
+        image:
+          src: /uploads/mobile.png
+          alt: Telecom & Cell Phone
+        link: /
+      - label: Auctions
+        image:
+          src: /uploads/sound.png
+          alt: Auctions
+        link: /
+      - label: Fun & Entertainment
+        image:
+          src: /uploads/smile.png
+          alt: Fun & Entertainment
         link: /
     _template: interests
   - headline: 'Book advertising for your website, blog, or video!'
@@ -77,6 +112,8 @@ blocks:
     sides: left
     _template: hero
 ---
+
+
 
 
 

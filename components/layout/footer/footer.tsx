@@ -141,18 +141,18 @@ export const Footer = ({ data, icon, rawData }) => {
               {data &&
                 data.footer_links.length > 0 &&
                 data.footer_links.map((footer, index) => (
-                  <>
-                    <div key={index} className=" text-white">
+                  <div key={index}>
+                    <div className=" text-white">
                       <h4 className="font-medium text-sm sm:text-lg mb-5">{footer.headLine}</h4>
                       <div className="flex flex-wrap justify-start">
                         {
-                          footer && footer.footer_links!==null&&footer.footer_links.length > 0 && footer.footer_links.map((subLinks, index) => (
+                          footer && footer.footer_links !== null && footer.footer_links.length > 0 && footer.footer_links.map((subLinks, index) => (
                             <div key={index} className="w-full text-xs sm:text-sm mb-1" style={{ color: `${socialIconColorClasses.themeColor}` }}>{subLinks.sub_links}</div>
                           ))
                         }
                       </div>
                     </div>
-                  </>
+                  </ div>
                 ))
               }
             </div>

@@ -5,14 +5,14 @@
     "nav": [
       {
         "href": "",
-        "label": "Earn Money"
+        "label": "Earn Moneys"
       },
       {
         "href": "buy-advertising",
         "label": "Buy Advertising"
       },
       {
-        "href": "posts",
+        "href": "infos",
         "label": "Infos"
       }
     ],

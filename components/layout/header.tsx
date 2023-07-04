@@ -7,6 +7,8 @@ import { Icon } from "../util/icon";
 import { tinaField } from "tinacms/dist/react";
 import { GlobalHeader } from "../../tina/__generated__/types";
 import { Actions } from "../util/actions";
+import { useState } from 'react';
+import { FiMenu, FiX } from 'react-icons/fi'; // Import the 3-bar icon from react-icons library
 
 export const Header = ({ data }: { data: GlobalHeader }) => {
   const router = useRouter();
@@ -59,6 +61,13 @@ export const Header = ({ data }: { data: GlobalHeader }) => {
     yellow: "text-yellow-500",
   };
   const [isClient, setIsClient] = React.useState(false);
+
+  const [isDrawerOpen, setIsDrawerOpen] = React.useState(false);
+
+  const toggleDrawer = () => {
+    setIsDrawerOpen(!isDrawerOpen);
+  };
+
   React.useEffect(() => {
     setIsClient(true);
   }, []);
@@ -147,15 +156,65 @@ export const Header = ({ data }: { data: GlobalHeader }) => {
 
           {/* Sign Up Button */}
           {data.Button && (
-            <button
-              style={{ borderRadius: "30px" }}
-              // data-tina-field={tinaField(data,"signup")}
-              className={`z-10 relative bg-blue-500 text-white flex items-center px-4 py-1 text-xs transition duration-150 ease-out transform focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 whitespace-nowrap 
+            <>
+              <button
+                style={{ borderRadius: "30px" }}
+                // data-tina-field={tinaField(data,"signup")}
+                className={`relative bg-blue-500 text-white flex items-center px-4 py-1 text-xs transition duration-150 ease-out transform focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 whitespace-nowrap 
             `}
-            >
-              {data.Button.label}
-            </button>
+              >
+                {data.Button.label}
+              </button>
+            </>
           )}
+
+
+          {/* Small Screen drawer*/}
+
+          <div className="sm:hidden">
+            <div>
+              <button
+                className="text-white"
+                onClick={toggleDrawer}
+                aria-label="Toggle drawer"
+              >
+                <FiMenu size={24} />
+              </button>
+            </div>
+            <div
+              className={`fixed inset-y-0 right-0 w-64 bg-white transition-transform duration-300 ease-in-out transform ${isDrawerOpen ? 'translate-x-0' : 'translate-x-full'
+                }`}
+            >
+              <div className="p-4 flex items-baseline justify-between">
+                <h2 className="text-sm font-semibold mb-4">MENU</h2>
+                <button
+                  className="text-gray-500"
+                  onClick={toggleDrawer}
+                  aria-label="Close drawer"
+                >
+                  <FiX size={24} />
+                </button>
+              </div>
+              {/* Additional content of the drawer goes here */}
+              <div className="px-8 py-3 flex flex-col gap-4">
+                {data.nav &&
+                  data.nav.map((item, i) => {
+                    const activeItem =
+                      (item.href === ""
+                        ? router.asPath === "/"
+                        : router.asPath.includes(item.href)) && isClient;
+                    return (
+                      <div key={i} style={{ borderRadius: activeItem?"10px":"", background: activeItem?"rgba(22, 119, 255, 0.10)":'' }}>
+                        <h4 className="px-4 py-2" style={{ color: activeItem?"#1677FF":'' }}>{item.label}</h4>
+                      </div>
+                    );
+                  }
+                  )}
+              </div>
+            </div>
+          </div>
+
+
         </div>
         <div
           className={`absolute h-1 bg-gradient-to-r from-transparent ${data.color === "primary" ? `via-white` : `via-black dark:via-white`

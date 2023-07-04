@@ -16,7 +16,7 @@ export const Banner = ({ data }: { data: PageBlocksBanner }) => {
                             <img className="w-full h-auto" src={data && data.image.src} alt={data && data.image.alt} />
 
                         )}
-                        <div className="absolute inset-0 flex items-center px-10">
+                        <div className="absolute inset-0 flex items-center px-16">
                             <div className="row-start-1 col-span-2 md:col-span-3 text-center md:text-left">
                                 {data.headline && (
                                     <h3
@@ -52,7 +52,7 @@ export const Banner = ({ data }: { data: PageBlocksBanner }) => {
                                             <button
                                             key={index}
                                             style={{borderRadius:'30px'}}
-                                                className={`z-10 relative bg-blue-500 px-4 py-2 text-xs lg:text-sm text-white flex items-center font-medium transition duration-150 ease-out transform focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 whitespace-nowrap`}
+                                                className={` relative bg-blue-500 px-4 py-2 text-xs lg:text-sm text-white flex items-center font-medium transition duration-150 ease-out transform focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 whitespace-nowrap`}
                                             >
                                                 {value.label}
                                             </button>

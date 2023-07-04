@@ -18,9 +18,9 @@ export const Layout = ({
   return (
     <>
       <Head>
-        <title>Tina</title>
+        <title>Ebesucher</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        {data.theme.font === "nunito" && (
+        {/* {data.theme.font === "nunito" && (
           <>
             <link rel="preconnect" href="https://fonts.googleapis.com" />
             <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -39,15 +39,11 @@ export const Layout = ({
               rel="stylesheet"
             />
           </>
-        )}
+        )} */}
       </Head>
-      <Theme data={data?.theme}>
+      <Theme data={``}>
         <div
-          className={`min-h-screen flex flex-col ${
-            data.theme.font === "nunito" && "font-nunito"
-          } ${data.theme.font === "lato" && "font-lato"} ${
-            data.theme.font === "sans" && "font-sans"
-          }`}
+          className={`min-h-screen flex flex-col`}
         >
           <Header data={data?.header} />
           <div className="flex-1 text-gray-800 bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-1000 flex flex-col">
@@ -56,7 +52,7 @@ export const Layout = ({
           <Footer
             rawData={rawData}
             data={data?.footer}
-            icon={data?.header.icon}
+            icon={data?.header}
           />
         </div>
       </Theme>

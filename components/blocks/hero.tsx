@@ -61,7 +61,7 @@ export const Hero = ({ data }: { data: PageBlocksHero }) => {
               {data.Button && (
                 <button
                   // data-tina-field={tinaField(data,"signup")}
-                  className={`z-10 relative bg-blue-500 rounded-3xl px-4 py-2 text-white flex items-center font-medium text-lg transition duration-150 ease-out transform focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 whitespace-nowrap 
+                  className={` relative bg-blue-500 rounded-3xl px-4 py-2 text-white flex items-center font-medium text-lg transition duration-150 ease-out transform focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 whitespace-nowrap 
             `}
                 >
                   {data.Button.label}
@@ -82,7 +82,7 @@ export const Hero = ({ data }: { data: PageBlocksHero }) => {
                     aria-hidden="true"
                   />
                   <img
-                    className="relative z-10 w-full max-w-xs rounded-lg md:max-w-none h-auto"
+                    className="relative  w-full max-w-xs rounded-lg md:max-w-none h-auto"
                     alt={data.image.alt}
                     src={data.image.src}
                   />
@@ -106,7 +106,7 @@ export const Hero = ({ data }: { data: PageBlocksHero }) => {
                   aria-hidden="true"
                 />
                 <img
-                  className="relative z-10 w-full max-w-xs rounded-lg md:max-w-none h-auto"
+                  className="relative  w-full max-w-xs rounded-lg md:max-w-none h-auto"
                   alt={data.image.alt}
                   src={data.image.src}
                 />
@@ -138,7 +138,7 @@ export const Hero = ({ data }: { data: PageBlocksHero }) => {
                 {/* Sign Up Button */}
                 {data.Button && (
                   <button
-                    className={`z-10 relative bg-blue-500 rounded-3xl px-4 py-2 text-white flex items-center font-medium text-lg transition duration-150 ease-out transform focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 whitespace-nowrap 
+                    className={` relative bg-blue-500 rounded-3xl px-4 py-2 text-white flex items-center font-medium text-lg transition duration-150 ease-out transform focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 whitespace-nowrap 
             `}
                   >
                     {data.Button.label}
