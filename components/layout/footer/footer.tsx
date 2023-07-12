@@ -147,7 +147,11 @@ export const Footer = ({ data, icon, rawData }) => {
                       <div className="flex flex-wrap justify-start">
                         {
                           footer && footer.footer_links !== null && footer.footer_links.length > 0 && footer.footer_links.map((subLinks, index) => (
-                            <div key={index} className="w-full text-xs sm:text-sm mb-1" style={{ color: `${socialIconColorClasses.themeColor}` }}>{subLinks.sub_links}</div>
+                            <div key={index} className="w-full text-xs sm:text-sm mb-1" style={{ color: `${socialIconColorClasses.themeColor}` }}>
+                              <Link href={`/${subLinks.url}`}>
+                                {subLinks.sub_links}
+                              </Link>
+                            </div>
                           ))
                         }
                       </div>

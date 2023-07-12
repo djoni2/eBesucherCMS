@@ -159,7 +159,7 @@ export const Header = ({ data }: { data: GlobalHeader }) => {
             <>
               <button
                 style={{ borderRadius: "30px" }}
-                // data-tina-field={tinaField(data,"signup")}
+                data-tina-field={tinaField(data,"Button")}
                 className={`relative bg-blue-500 text-white flex items-center px-4 py-1 text-xs transition duration-150 ease-out transform focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 whitespace-nowrap 
             `}
               >

@@ -10,6 +10,9 @@ import { iconSchema } from "../components/util/icon";
 import { footerSchema } from "../components/layout/footer/footerSchema";
 import { infosSchema } from "../components/blocks/infosSection";
 import { cardSchema } from "../components/blocks/card";
+import { imprintSchema } from "../components/blocks/imprintView";
+import { WebsiteTrafficExchangeSchema } from "../components/blocks/component";
+import { earnMoneySchema } from "../components/blocks/earn_money";
 
 
 const config = defineConfig({
@@ -186,9 +189,6 @@ const config = defineConfig({
             if (document._sys.filename === "home") {
               return `/`;
             }
-            if (document._sys.filename === "infos") {
-              return `/infos`;
-            }
             return undefined;
           },
         },
@@ -211,15 +211,19 @@ const config = defineConfig({
               visualSelector: true,
             },
             templates: [
+
               heroBlockSchema,
               // @ts-ignore
               bannerSchema,
               infosSchema,
               cardSchema,
               interestsSchema,
+              imprintSchema,
               featureBlockSchema,
               contentBlockSchema,
               testimonialBlockSchema,
+              WebsiteTrafficExchangeSchema,
+              earnMoneySchema
             ],
           },
         ],

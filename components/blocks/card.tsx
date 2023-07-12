@@ -9,53 +9,41 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 export const Card = ({ data }: { data: PageBlocksCard }) => {
-    const settings = {
-        arrows: false,
-        infinite: true,
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 2000,
-        dots: true,
-        appendDots: dots => (
-            <div>
-                <ul style={{ position: 'relative', bottom: '-20px' }}>{dots}</ul>
-            </div>
-        ),
-    };
     return (
         <Section>
-            <div className={`flex flex-wrap gap-4`}>
-                {data && data.card.map((value, index) => (
-                    <div key={index} style={{
-                        boxShadow: "16px 16px 80px 0px rgba(184, 184, 184, 0.25)", border: "1px solid #E6E6E6", flexDirection: 'column', alignItems: 'centre'
-                    }}
-                        className="py-9 px-2 md:px-16 rounded-xl gap-6 hidden sm:flex" >
-                        <div className="flex justify-center text-center ">
-                            {value?.image && <img
-                                style={{ background: '#E0EDFF' }}
-                                className="p-5 rounded-full"
-                                src={value.image.src}
-                                alt={value.image.alt}
-                                aria-hidden="true"
-                            />}
-                        </div>
-                        <div className="text-center font-bold text-sm md:text-lg">
-                            {value.label}
-                        </div>
-                        <div className="flex justify-center">
-                            <button
-                                style={{ borderRadius: "30px" }}
-                                // data-tina-field={tinaField(data,"signup")}
-                                className={` bg-blue-500 text-white flex items-center px-4 py-1 text-xs text-center focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 whitespace-nowrap`}
-                            >
-                                {value.Button.label}
-                            </button>
-                        </div>
+            <Container size="large">
+                <div className={`grid grid-cols-2 md:grid-cols-3 gap-4`}>
+                    {data && data.card.map((value, index) => (
+                        <div key={index} style={{
+                            boxShadow: "16px 16px 80px 0px rgba(184, 184, 184, 0.25)", border: "1px solid #E6E6E6", flexDirection: 'column', alignItems: 'centre'
+                        }}
+                            className="py-9 px-2 md:px-16 rounded-xl gap-6 flex" >
+                            <div className="flex justify-center text-center ">
+                                {value?.image && <img
+                                    style={{ background: '#E0EDFF' }}
+                                    className="p-5 rounded-full"
+                                    src={value.image.src}
+                                    alt={value.image.alt}
+                                    aria-hidden="true"
+                                />}
+                            </div>
+                            <div className="text-center font-bold text-sm md:text-lg">
+                                {value.label}
+                            </div>
+                            <div className="flex justify-center">
+                                <button
+                                    style={{ borderRadius: "30px" }}
+                                    // data-tina-field={tinaField(data,"signup")}
+                                    className={` bg-blue-500 text-white flex items-center px-4 py-1 text-xs text-center focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 whitespace-nowrap`}
+                                >
+                                    {value.Button.label}
+                                </button>
+                            </div>
 
-                    </div>
-                ))}
-            </div>
+                        </div>
+                    ))}
+                </div>
+            </Container>
         </Section>
     );
 };

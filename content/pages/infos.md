@@ -38,7 +38,7 @@ blocks:
           eiusmod tempor incididunt ut labore
         buttons:
           - Icon:
-              src: /uploads/Notification.png
+              src: /uploads/Notifications.png
               alt: Werbetreibende
             icon_headline: Werbetreibende
             link: /
@@ -48,10 +48,9 @@ blocks:
             icon_headline: Nutzer
             link: /
       - headline: Was ist ein Besuchertausch?
-        text: >+
+        text: >
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore 
-
+          eiusmod tempor incididunt ut labore
         buttons:
           - Icon:
               src: /uploads/Select.png
@@ -59,10 +58,9 @@ blocks:
             icon_headline: Gehe zur Seite
             link: /
       - headline: Werkzeuge
-        text: >+
+        text: >
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore 
-
+          eiusmod tempor incididunt ut labore
         buttons:
           - Icon:
               src: /uploads/Select.png
@@ -71,6 +69,7 @@ blocks:
             link: /
     _template: Info
 ---
+
 
 
 

@@ -7,52 +7,56 @@ import { PageBlocksInfo } from "../../tina/__generated__/types";
 import { tinaField } from "tinacms/dist/react";
 
 export const InfoSection = ({ data }: { data: PageBlocksInfo }) => {
+
     return (
         <Section>
-            {data && data.Info.map((value, index) => (
-                <div key={index} className={`py-10 ${index !== data.Info.length - 1 ? 'border-b border-gray-300' : ''}`}>
-                    <div className="flex flex-col sm:flex-row  justify-between ">
-                        {/* Texts Section */}
-                        <div className="flex flex-col">
-                            {/* headline */}
-                            <div>
-                        { value.headline&& <span className="text-[24px] font-semibold">{value.headline}</span>}
+            <Container size="large">
+                {data && data.Info.map((value, index) => (
+                    <div key={index} className={`py-10 ${index !== data.Info.length - 1 ? 'border-b border-gray-300' : ''}`}>
+                        <div className="flex flex-col sm:flex-row  justify-between ">
+                            {/* Texts Section */}
+                            <div className="flex flex-col">
+                                {/* headline */}
+                                <div>
+                                    {value.headline && <span className="text-[24px] font-semibold">{value.headline}</span>}
+                                </div>
+
+
+                                {/* subheadline */}
+                                <div className="my-8 sm:my-4  sm:w-[80%]"
+                                    data-tina-field={tinaField(data, "Info")}>
+                                    {value.text && <TinaMarkdown content={value.text} />}
+                                </div>
+
                             </div>
 
+                            {/* Buttons Section  */}
+                            <div className="flex flex-row gap-10">
+                                {
+                                    value.buttons && value.buttons.map((button, index) => (
+                                        // button component
+                                        <div key={index} className="flex   sm:flex-col items-center gap-3">
 
-                            {/* subheadline */}
-                            <div className="my-8 sm:my-4  sm:w-[80%]">
-                                {value.text && <TinaMarkdown content={value.text} />}
+                                            {/* button icon container */}
+
+                                            {
+                                                button.Icon && button.Icon.src &&
+                                                <div className="p-5 rounded-[50%] bg-[#1677FF] cursor-pointer" data-tina-field={tinaField(data, "Info")}>
+                                                    <img style={{ height: 24, width: 24, maxWidth: "unset" }} src={button.Icon.src} alt="..." />
+                                                </div>}
+
+                                            {/* Button Text */}
+                                            {button.icon_headline && <span className="w-[max-content]" data-tina-field={tinaField(data, "Info")}>{button.icon_headline}</span>}
+                                        </div>
+
+                                    ))
+                                }
                             </div>
-
                         </div>
 
-                        {/* Buttons Section  */}
-                        <div className="flex flex-row gap-10">
-                            {
-                                value.buttons&&value.buttons.map((button, index) => (
-                                    // button component
-                                    <div className="flex   sm:flex-col items-center gap-3">
-
-                                        {/* button icon container */}
-                                        
-                                        {
-                                            button.Icon&& button.Icon.src&&
-                                            <div className="p-5 rounded-[50%] bg-[#1677FF] cursor-pointer">
-                                                <img style={{height:24,width:24, maxWidth:"unset"}} src={button.Icon.src} alt="..."/>
-                                            </div>}
-
-                                        {/* Button Text */}
-                                        {button.icon_headline&& <span className="w-[max-content]">{button.icon_headline}</span>}
-                                    </div>
-
-                                ))
-                            }
-                        </div>
                     </div>
-                    
-                </div>
-            ))}
+                ))}
+            </Container>
         </Section>
     );
 };
