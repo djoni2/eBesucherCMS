@@ -7,7 +7,8 @@
     "build": "tinacms build && next build",
     "start": "tinacms build && next start",
     "export": "npm run build && next export",
-    "lint": "eslint . --ext .ts,.tsx"
+    "lint": "eslint . --ext .ts,.tsx",
+    "generate-sitemap": "node scripts/sitemap-generator.js"
   },
   "devDependencies": {
     "@svgr/webpack": "^6.3.1",
@@ -29,6 +30,7 @@
     "@tailwindcss/typography": "^0.5.8",
     "cookies": "^0.8.0",
     "date-fns": "^2.23.0",
+    "fast-glob": "^3.3.0",
     "next": "^13.3.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

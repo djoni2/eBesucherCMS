@@ -5,6 +5,7 @@ import { Footer } from "./footer";
 import { Theme } from "./theme";
 import layoutData from "../../content/global/index.json";
 import { Global } from "../../tina/__generated__/types";
+import { useRouter } from 'next/router';
 
 export const Layout = ({
   rawData = {},
@@ -15,31 +16,17 @@ export const Layout = ({
   data?: Omit<Global, "id" | "_sys" | "_values">;
   children: React.ReactNode;
 }) => {
+  const router = useRouter();
+  const currentUrl = router.asPath;
   return (
     <>
       <Head>
-        <title>Ebesucher</title>
+        <title>{rawData.page.meta_title?rawData.page.meta_title:'Surf the Web | Earn Money | Get New Visitors | eBesucher.com'}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        {/* {data.theme.font === "nunito" && (
-          <>
-            <link rel="preconnect" href="https://fonts.googleapis.com" />
-            <link rel="preconnect" href="https://fonts.gstatic.com" />
-            <link
-              href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,700;0,800;1,400;1,700;1,800&display=swap"
-              rel="stylesheet"
-            />
-          </>
-        )}
-        {data.theme.font === "lato" && (
-          <>
-            <link rel="preconnect" href="https://fonts.googleapis.com" />
-            <link rel="preconnect" href="https://fonts.gstatic.com" />
-            <link
-              href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap"
-              rel="stylesheet"
-            />
-          </>
-        )} */}
+        <link rel="canonical" href={`https://www.ebesucher.com${currentUrl}`} />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <meta name="robots" content={`${rawData.page.meta_robots?rawData.page.meta_robots:"NO INDEX, NO FOLLOW"}`} />
+        <meta name="description" content={`${rawData.page.meta_description?rawData.page.meta_description:'Tell us your interests, discover amazing websites and get paid for it - or get free visitors to your website, blog or video!'}`} />
       </Head>
       <Theme data={``}>
         <div

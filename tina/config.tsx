@@ -4,7 +4,7 @@ import { featureBlockSchema } from "../components/blocks/features";
 import { heroBlockSchema } from "../components/blocks/hero";
 import { testimonialBlockSchema } from "../components/blocks/testimonial";
 import { bannerSchema } from "../components/blocks/banner";
-import {interestsSchema} from "../components/blocks/interests"
+import { interestsSchema } from "../components/blocks/interests"
 import { ColorPickerInput } from "./fields/color";
 import { iconSchema } from "../components/util/icon";
 import { footerSchema } from "../components/layout/footer/footerSchema";
@@ -201,6 +201,26 @@ const config = defineConfig({
               "The title of the page. This is used to display the title in the CMS",
             isTitle: true,
             required: true,
+          },
+          {
+            type: "string",
+            label: "Meta Title",
+            name: "meta_title",
+          },
+          {
+            type: "string",
+            label: "Meta Description",
+            name: "meta_description",
+          },
+          {
+            type: "string",
+            label: "Indexing",
+            name: "meta_robots",
+            options:
+              [
+                { label: "Index", value: "INDEX, FOLLOW" },
+                { label: "Not Index", value: "NO INDEX, NO FOLLOW" },
+              ],
           },
           {
             type: "object",

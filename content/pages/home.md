@@ -111,7 +111,13 @@ blocks:
     color: tint
     sides: left
     _template: hero
+meta_title: Surf the Web | Earn Money | Get New Visitors | eBesucher.com
+meta_description: >-
+  Tell us your interests, discover amazing websites and get paid for it - or get
+  free visitors to your website, blog or video!
+meta_robots: 'INDEX, FOLLOW'
 ---
+
 
 
 

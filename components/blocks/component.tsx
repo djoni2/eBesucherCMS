@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container } from "../util/container";
 import { Section } from "../util/section";
 import { Input, type TinaTemplate } from "tinacms";
@@ -9,8 +9,16 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import ReactStars from 'react-stars'
+import { TiTick } from 'react-icons/ti'
+import { AiFillInfoCircle } from "react-icons/ai";
 
 export const WebsiteTrafficExchange = ({ data }: { data: PageBlocksTrafficExchange }) => {
+    const [domain, setDomain] = useState("")
+    const [error, setError] = useState({
+        error: false,
+        error1: false,
+        error2: false
+    })
     const settings = {
         arrows: false,
         infinite: true,
@@ -34,6 +42,44 @@ export const WebsiteTrafficExchange = ({ data }: { data: PageBlocksTrafficExchan
             </div>
         ),
     };
+    const httpCheckUrl = (url) => {
+        const regexPattern = /^(?!https:\/\/www\.ebesucher\.com\/|https:\/\/www\.ebesucher\.de\/).*$/;
+        return !regexPattern.test(url);
+    };
+    const isValidUrl = (url) => {
+        const regex = /^https:\/\/.+\.com$/i;
+        return regex.test(url);
+    };
+    const ishttp = (url) => {
+        const regex = /^http:\/\/.+\.com$/i;
+        return regex.test(url);
+    };
+    const advertiseNow = () => {
+        setError({
+            error: false,
+            error1: false,
+            error2: false
+        })
+        if (isValidUrl(domain)) {
+            alert('Url is Accurate to post');
+        } else {
+            if (domain === "" || !isValidUrl(domain) ) {
+                setError({ ...error, error: true })
+            }else if (ishttp(domain)) {
+                setError({ ...error, error2: true })
+            } else if(httpCheckUrl(domain)){
+                setError({ ...error, error1: true })
+            }
+        }
+        // console.log(httpCheckUrl(domain))
+        // || (domain.split(":")[0] !== "http" || domain.split(":")[0] !== "https")
+        // if (domain === "" || (domain.split(":")[0] !== "http" || domain.split(":")[0] !== "https")) {
+        //     setError({ ...error, error: true })
+        // } else if (domain) {
+
+        // }
+        // console.log(domain.split(":"))
+    }
     return (
         <Section >
             <Container width="large" size="medium">
@@ -43,12 +89,26 @@ export const WebsiteTrafficExchange = ({ data }: { data: PageBlocksTrafficExchan
                 {/* Input */}
                 <div className="grid grid-cols-10 rounded--sm border border-zinc-300 justify-between items-center mt-5">
                     <div className="md:col-span-9 col-span-7 h-10 px-3 py-2 justify-start items-start gap-2.5 flex">
-                        <input className="grow shrink basis-0 h-6 justify-start items-start gap-2.5 flex" placeholder="http://www.my-own-domain.xx" />
+                        <input onChange={e => { setDomain(e.target.value) }} className="grow shrink basis-0 h-6 justify-start items-start gap-2.5 flex" placeholder="https://www.my-own-domain.xx" />
                     </div>
-                    {data.button1 && <div className="md:col-span-1 col-span-3 self-stretch h-10 bg-blue-600 rounded-tr--sm rounded-br--sm shadow border border-blue-600 justify-center items-center gap-2 flex">
+                    {data.button1 && <div onClick={advertiseNow} className=" cursor-pointer md:col-span-1 col-span-3 self-stretch h-10 bg-blue-600 rounded-tr--sm rounded-br--sm shadow border border-blue-600 justify-center items-center gap-2 flex">
                         <div className="Input text-white text-base font-medium leading-normal">{data.button1.label}</div>
                     </div>}
                 </div>
+                {error.error && <div className="flex items-center mt-1">
+                    <AiFillInfoCircle className="text-red-700" />
+                    <span className=" ml-1 text-red-700">This value is not allowed!</span>
+                </div>}
+                {error.error1 && <div className="flex items-center mt-1">
+                    <AiFillInfoCircle className="text-red-700" />
+                    <span className=" ml-1 text-red-700"> Please do not add ebesucher.com / ebesucher.de to the surfbar.</span>
+                </div>}
+                {error.error2 &&
+                    <div className="flex items-center mt-1">
+                        <AiFillInfoCircle className="text-red-700" />
+                        <span className=" ml-1 text-red-700">Please do only add websites with a HTTPS protocoll!</span>
+                    </div>
+                }
 
                 {/* list of options */}
 
@@ -57,7 +117,7 @@ export const WebsiteTrafficExchange = ({ data }: { data: PageBlocksTrafficExchan
                         <div className=" my-2 sm:mx-2">
                             {/* Content for the first div */}
                             <div className="col-span-2 sm:col-span-1 justify-start items-center gap-2 flex">
-                                <input type="checkbox" className=" w-4 h-4" />
+                                <TiTick className=" w-4 h-4" />
                                 {value.text && <div className="text-black text-opacity-90  text-xs md:text-base font-normal leading-normal">{value.text}</div>}
                             </div>
                         </div>
@@ -81,7 +141,7 @@ export const WebsiteTrafficExchange = ({ data }: { data: PageBlocksTrafficExchan
                     <div key={index}>
                         <div style={{ backgroundImage: `url(${data && data.image.src})` }} className="bg-cover bg-center h-[320px] sm:h-[350px] md:h-[420px]">
                             <div className={`flex px-6 items-center max-w-7xl mx-auto sm:px-8 mb-6 ${index === 0 ? 'md:right-[665] sm:right-[355]' : 'md:left-[665] sm:left-[355]'}`}>
-                                <div className="w-[342px] h-[328px] md:w-[383.60px] md:h-[289px] lg:w-[631px] lg:h-[201px]  sm:px-8 sm:py-2">
+                                <div className="w-[390px] h-[328px] md:w-[383.60px] md:h-[289px] lg:w-[631px] lg:h-[201px]  sm:px-8 sm:py-2">
                                     <div className="row-start-1 col-span-2 md:col-span-3 text-center md:text-left">
                                         {data.headline && (
                                             <h3
@@ -144,8 +204,8 @@ export const WebsiteTrafficExchange = ({ data }: { data: PageBlocksTrafficExchan
                 <Slider {...settings}>
                     {
                         data.testimonal && data.testimonal.map((test, index) => (
-                            <div className="m-3">
-                                <div className="h-auto px-8 py-[25px] mx-3 bg-white rounded-[10px] border border-zinc-300 flex-col overflow-auto justify-around items-start gap-5 inline-flex">
+                            <div className="m-3 bg-white rounded-[10px] border border-zinc-300">
+                                <div className="px-8 py-[25px] mx-3 flex-col overflow-auto justify-around items-start gap-5 inline-flex">
                                     <ReactStars
                                         count={test.rating}
                                         size={24}

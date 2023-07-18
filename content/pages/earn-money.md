@@ -111,8 +111,10 @@ blocks:
           - list: |
               Discover new websites and get bonus points for visiting our
               partners' sites (surfbar and clicks).
-          - list: |
-              Exchange your bonus points for real money and receive a payout from
+          - list: >
+              Exchange your bonus points for real money and receive a payout
+              from
+
               2 euros via PayPal or bank transfer!
     youtubeId: T_Po0UEr368
     _template: earnMoney
@@ -128,7 +130,13 @@ blocks:
         type: button
         link: /
     _template: testimonial
+meta_title: Earn Money Online | eBesucher.com
+meta_description: >-
+  Earn money online for receiving advertising emails and for visiting websites
+  of our partners through the surfbar and click campaigns.
+meta_robots: 'INDEX, FOLLOW'
 ---
+
 
 
 

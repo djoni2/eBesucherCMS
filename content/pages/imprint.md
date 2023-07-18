@@ -44,7 +44,13 @@ blocks:
       will be happy to help. In exceptional cases, you can also turn on the [OS
       dispute settlement platform](/ "url").
     _template: imprint
+meta_title: Surf the Web | Earn Money | Get New Visitors | eBesucher.com
+meta_description: >-
+  Tell us your interests, discover amazing websites and get paid for it - or get
+  free visitors to your website, blog or video!
+meta_robots: 'INDEX, FOLLOW'
 ---
+
 
 
 
