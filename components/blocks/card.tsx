@@ -15,7 +15,7 @@ export const Card = ({ data }: { data: PageBlocksCard }) => {
                 <div className={`grid grid-cols-2 md:grid-cols-3 gap-4`}>
                     {data && data.card.map((value, index) => (
                         <div key={index} style={{
-                            boxShadow: "16px 16px 80px 0px rgba(184, 184, 184, 0.25)", border: "1px solid #E6E6E6", flexDirection: 'column', alignItems: 'centre'
+                            boxShadow: "16px 16px 80px 0px rgba(184, 184, 184, 0.25)", border: "1px solid #E6E6E6", flexDirection: 'column', alignItems: 'center'
                         }}
                             className="py-9 px-2 md:px-16 rounded-xl gap-6 flex" >
                             <div className="flex justify-center text-center ">

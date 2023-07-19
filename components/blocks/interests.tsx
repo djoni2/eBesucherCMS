@@ -29,11 +29,11 @@ export const Interests = ({ data }: { data: PageBlocksInterests }) => {
             <Container size="large">
                 <div>
                     <div className="relative">
-                        {data && <h3 className=" text-lg sm:text-3xl md:text-4xl font-bold flex items-center justify-center">{data.headline}</h3>}
+                        {data && <h3 className="text-lg sm:text-3xl md:text-4xl font-bold flex items-center justify-center">{data.headline}</h3>}
                         <div className="grid grid-cols-4 gap-5 mt-5">
                             {data && data.Interests.length > 0 && data.Interests.map((interest, index) => (
                                 <div key={index} style={{
-                                    boxShadow: "16px 16px 80px 0px rgba(184, 184, 184, 0.25)", border: "1px solid #E6E6E6", flexDirection: 'column', alignItems: 'centre'
+                                    boxShadow: "16px 16px 80px 0px rgba(184, 184, 184, 0.25)", border: "1px solid #E6E6E6", flexDirection: 'column', alignItems: 'center'
                                 }}
                                     className="py-9 px-2 md:px-16 rounded-xl gap-6 hidden sm:flex" >
                                     <div className="flex justify-center text-center ">
@@ -45,7 +45,7 @@ export const Interests = ({ data }: { data: PageBlocksInterests }) => {
                                             aria-hidden="true"
                                         />}
                                     </div>
-                                    <div className="text-center font-bold text-sm md:text-lg">
+                                    <div className="text-center font-bold text-xs md:text-base lg:text-lg text-black">
                                         {interest.label}
                                     </div>
                                 </div>
@@ -55,7 +55,7 @@ export const Interests = ({ data }: { data: PageBlocksInterests }) => {
                             <Slider {...settings}>
                                 {data && data.Interests.length > 0 && data.Interests.map((interest, index) => (
                                     <div key={index} style={{
-                                        boxShadow: "16px 16px 80px 0px rgba(184, 184, 184, 0.25)", border: "1px solid #E6E6E6", flexDirection: 'column', alignItems: 'centre'
+                                        boxShadow: "16px 16px 80px 0px rgba(184, 184, 184, 0.25)", border: "1px solid #E6E6E6", flexDirection: 'column', alignItems: 'center'
                                     }}
                                         className="py-9 px-2 md:px-16 rounded-xl gap-6 flex" >
                                         <div className="flex justify-center text-center ">
@@ -67,7 +67,7 @@ export const Interests = ({ data }: { data: PageBlocksInterests }) => {
                                                 aria-hidden="true"
                                             />}
                                         </div>
-                                        <div className="text-center font-bold text-xs">
+                                        <div className="text-center font-bold text-xs  sm:text-base mg:text-lg">
                                             {interest.label}
                                         </div>
                                     </div>

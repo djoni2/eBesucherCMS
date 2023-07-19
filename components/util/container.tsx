@@ -5,6 +5,7 @@ export const Container = ({
   size = "medium",
   width = "large",
   className = "",
+  
   ...props
 }) => {
   const verticalPadding = {

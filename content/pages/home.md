@@ -2,7 +2,7 @@
 title: Ebesucher-Home
 blocks:
   - image:
-      src: /uploads/Frame%20243.png
+      src: /uploads/banner.png
       alt: banner image
     headline: Make money or advertise!
     tagline: Visit new websites and get new visitors
@@ -117,6 +117,7 @@ meta_description: >-
   free visitors to your website, blog or video!
 meta_robots: 'INDEX, FOLLOW'
 ---
+
 
 
 
