@@ -6,7 +6,6 @@ import { PageBlocksBanner } from "../../tina/__generated__/types";
 import { tinaField } from "tinacms/dist/react";
 
 export const Banner = ({ data }: { data: PageBlocksBanner }) => {
-    // bg-[url('assets/img/banner/MobileBanner.png')] 
     return (
         <Section>
             <Container width="100%" style={{ padding: 'unset' }}>
