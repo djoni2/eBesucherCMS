@@ -43,42 +43,73 @@ export const WebsiteTrafficExchange = ({ data }: { data: PageBlocksTrafficExchan
         ),
     };
     const httpCheckUrl = (url) => {
-        const regexPattern = /^(?!https:\/\/www\.ebesucher\.com\/|https:\/\/www\.ebesucher\.de\/).*$/;
-        return !regexPattern.test(url);
+        const regexPattern = /^https:\/\/www\.ebesucher\.(com|de)\/?.*$/;
+        return regexPattern.test(url);
     };
     const isValidUrl = (url) => {
-        const regex = /^https:\/\/.+\.com$/i;
-        return regex.test(url);
+        const regexPattern = /^(https:\/\/)?([\w.-]+\.[a-zA-Z]{2,})(\/.*)?$/;
+        return regexPattern.test(url);
     };
+
+    const ishttps = (url) => {
+        const regex = /^https?:\/\//i;
+        return !regex.test(url);
+    };
+
     const ishttp = (url) => {
-        const regex = /^http:\/\/.+\.com$/i;
+        const regex = /^http:\/\//i;
         return regex.test(url);
     };
+
     const advertiseNow = () => {
         setError({
             error: false,
             error1: false,
             error2: false
         })
-        if (isValidUrl(domain)) {
+        console.log(isValidUrl(domain))
+
+        if (isValidUrl(domain) && !httpCheckUrl(domain)) {
             alert('Url is Accurate to post');
         } else {
-            if (domain === "" || !isValidUrl(domain) ) {
+            if (domain === "") {
                 setError({ ...error, error: true })
-            }else if (ishttp(domain)) {
-                setError({ ...error, error2: true })
-            } else if(httpCheckUrl(domain)){
-                setError({ ...error, error1: true })
+                setTimeout(() => {
+                    setError({ ...error, error: false })
+                }, 4000);
+                return
+            }
+            if (ishttps(domain)) {
+                setError({ ...error, error: true })
+                setTimeout(() => {
+                    setError({ ...error, error: false })
+                }, 4000);
+                return
+            }
+            if (!ishttps(domain)) {
+                if (ishttp(domain)) {
+                    setError({ ...error, error2: true })
+                    setTimeout(() => {
+                        setError({ ...error, error2: false })
+                    }, 4000);
+                    return
+                }
+                else if (httpCheckUrl(domain)) {
+                    setError({ ...error, error1: true })
+                    setTimeout(() => {
+                        setError({ ...error, error1: false })
+                    }, 4000);
+                    return
+                }
+            }
+            if (!isValidUrl(domain)) {
+                setError({ ...error, error: true })
+                setTimeout(() => {
+                    setError({ ...error, error: false })
+                }, 4000);
+                return
             }
         }
-        // console.log(httpCheckUrl(domain))
-        // || (domain.split(":")[0] !== "http" || domain.split(":")[0] !== "https")
-        // if (domain === "" || (domain.split(":")[0] !== "http" || domain.split(":")[0] !== "https")) {
-        //     setError({ ...error, error: true })
-        // } else if (domain) {
-
-        // }
-        // console.log(domain.split(":"))
     }
     return (
         <Section >
