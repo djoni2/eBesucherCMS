@@ -43,7 +43,7 @@ export const WebsiteTrafficExchange = ({ data }: { data: PageBlocksTrafficExchan
         ),
     };
     const httpCheckUrl = (url) => {
-        const regexPattern = /^https:\/\/www\.ebesucher\.(com|de)\/?.*$/;
+        const regexPattern = /^https?:\/\/(?:.*\.)?(?:ebesucher\.com|ebesucher\.de)(?:\/.*)?.*$/;
         return regexPattern.test(url);
     };
     const isValidUrl = (url) => {
@@ -67,10 +67,14 @@ export const WebsiteTrafficExchange = ({ data }: { data: PageBlocksTrafficExchan
             error1: false,
             error2: false
         })
-        console.log(isValidUrl(domain))
 
         if (isValidUrl(domain) && !httpCheckUrl(domain)) {
             alert('Url is Accurate to post');
+            setError({
+                error: false,
+                error1: false,
+                error2: false
+            })
         } else {
             if (domain === "") {
                 setError({ ...error, error: true })

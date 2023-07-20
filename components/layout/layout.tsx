@@ -21,12 +21,30 @@ export const Layout = ({
   return (
     <>
       <Head>
-        <title>{rawData.page.meta_title?rawData.page.meta_title:'Surf the Web | Earn Money | Get New Visitors | eBesucher.com'}</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <title>{rawData?.page.meta_title ? rawData.page.meta_title : data.global_seo.meta_title ? data.global_seo.meta_title: ''}</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-  width" />
         <link rel="canonical" href={`https://www.ebesucher.com${currentUrl}`} />
         <link rel="shortcut icon" href="/favicon.ico" />
-        <meta name="robots" content={`${rawData.page.meta_robots?rawData.page.meta_robots:"NO INDEX, NO FOLLOW"}`} />
-        <meta name="description" content={`${rawData.page.meta_description?rawData.page.meta_description:'Tell us your interests, discover amazing websites and get paid for it - or get free visitors to your website, blog or video!'}`} />
+        <meta name="robots" content={`${rawData?.page.meta_robots ? rawData.page.meta_robots : "NO INDEX, NO FOLLOW"}`} />
+        <meta name="description" content={`${rawData?.page.meta_description ? rawData.page.meta_description : data.global_seo.meta_description?data.global_seo.meta_description: 'Tell us your interests, discover amazing websites and get paid for it - or get free visitors to your website, blog or video!'}`} />
+
+        {/* types use for sharing */}
+        <meta name="og:type" property="og:type" content="website" />
+        <meta name="og:title" property="og:title" content={`${rawData?.page.meta_title ? rawData.page.meta_title : data.global_seo.meta_title?data.global_seo.meta_title: ""}`} />
+        <meta name="og:description" property="og:description" content={`${rawData?.page.meta_description ? rawData.page.meta_description :data?.global_seo.meta_description?data?.global_seo.meta_description: ''}`} />
+        <meta name="og:site_name" property="og:site_name" content="eBesucher.com" />
+        <meta name="og:image" property="og:image" content={`${data?.global_seo.socialImage?data?.global_seo.socialImage:"https://www.ebesucher.com/images/open-graph/ebesucher-open-graph-en.png"}`} />
+        <meta name="og:phone_number" property="og:phone_number" content="+49-30-5557-99911" />
+        <meta name="og:fax_number" property="og:fax_number" content="+49-30-5557-99917" />
+
+        {/* Use for sharing in twitter */}
+
+        <meta name="twitter:card" property="twitter:card" content="summary_large_image" />
+        <meta name="twitter:domain" property="twitter:domain" content="https://www.ebesucher.com" />
+        <meta name="twitter:url" property="twitter:url" content={`https://www.ebesucher.com${currentUrl}`} />
+        <meta name="twitter:title" property="twitter:title" content={`${rawData?.page.meta_title ? rawData?.page.meta_title : data?.global_seo.meta_title?data?.global_seo.meta_title: ""}`} />
+        <meta name="twitter:description" property="twitter:description" content={`${rawData?.page.meta_description ? rawData?.page.meta_description :data?.global_seo.meta_description?data?.global_seo.meta_description: ''}`} />
+        <meta name="twitter:image" property="twitter:image" content={`${data?.global_seo.socialImage?data?.global_seo.socialImage:"https://www.ebesucher.com/images/open-graph/ebesucher-open-graph-en.png"}`} />
       </Head>
       <Theme data={``}>
         <div

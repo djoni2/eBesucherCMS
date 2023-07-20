@@ -10,7 +10,6 @@ export const EarnMoney = ({ data }: { data: PageBlocksEarnMoney }) => {
     return (
         <Section>
             <Container width="large" size="large">
-                {console.log(data)}
                 {
                     data.content && data.content.length > 0 &&
                     data.content.map((content, index) => (

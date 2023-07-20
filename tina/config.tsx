@@ -51,6 +51,28 @@ const config = defineConfig({
         fields: [
           {
             type: "object",
+            label: "Global SEO",
+            name: "global_seo",
+            fields: [
+              {
+                type: "string",
+                label: "Meta Title",
+                name: "meta_title",
+              },
+              {
+                type: "string",
+                label: "Meta Description",
+                name: "meta_description",
+              },
+              {
+                type: "image",
+                label: "Social Media Share Image",
+                name: "socialImage",
+              }
+            ],
+          },
+          {
+            type: "object",
             label: "Header",
             name: "header",
             fields: [
@@ -93,6 +115,25 @@ const config = defineConfig({
                     label: "Label",
                     name: "label",
                   },
+                  {
+                    type: "object",
+                    label: "Sub menu",
+                    name: "subs",
+                    list: true,
+                    fields: [
+                      {
+                        type: "string",
+                        label: "Link",
+                        name: "href",
+                      },
+                      {
+                        type: "string",
+                        label: "Label",
+                        name: "label",
+                      },
+                    ]
+                  },
+
                 ],
               },
               {

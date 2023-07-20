@@ -5,7 +5,17 @@
     "nav": [
       {
         "href": "",
-        "label": "Earn Moneys"
+        "label": "Earn Moneys",
+        "subs": [
+          {
+            "href": "/",
+            "label": "prices"
+          },
+          {
+            "href": "/",
+            "label": "Earnings"
+          }
+        ]
       },
       {
         "href": "buy-advertising",
@@ -138,5 +148,10 @@
     "color": "blue",
     "font": "sans",
     "darkMode": "system"
+  },
+  "global_seo": {
+    "meta_title": "Discover Websites | Earn Money | Buy Visitors | eBesucher.com",
+    "meta_description": "Discover amazing websites and get paid for it - or get free visitors to your website, blog or video!",
+    "socialImage": ""
   }
 }
