@@ -152,7 +152,7 @@ export const Header = ({ data }: { data: GlobalHeader }) => {
                 <button
                   style={{ borderRadius: "30px" }}
                   data-tina-field={tinaField(data, "Button")}
-                  className={`relative bg-green-700 text-white flex items-center px-4 py-1 text-xs transition duration-150 ease-out transform focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 whitespace-nowrap 
+                  className={`relative w-full text-center bg-green-700 text-white flex items-center px-8 py-1 text-xs transition duration-150 ease-out transform focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 whitespace-nowrap 
             `}
                 >
                   Accept all cookies
@@ -216,16 +216,11 @@ export const Header = ({ data }: { data: GlobalHeader }) => {
                               key={j}
                               className="px-4 py-2 text-sm hover:bg-gray-100 text-black"
                             >
-                              <div className="w-[186px] h-[78px] rounded-sm shadow flex-col justify-start items-start inline-flex">
-                                <div className="self-stretch h-1.5 px-[22px] flex-col justify-start items-center gap-2.5 flex">
-                                  <div className="w-[0px] h-1.5 justify-center items-start gap-2.5 inline-flex" />
+                              <Link href={subMenuItem.href} className="w-[186px] h-[38px] rounded-sm flex-col justify-start items-start inline-flex">
+                                <div className="self-stretch justify-start items-center gap-2 inline-flex">
+                                  <div className="text-black text-opacity-90 text-sm font-normal leading-snug">{subMenuItem.label}</div>
                                 </div>
-                                <div className="self-stretch h-[72px] py-1 bg-white rounded-sm flex-col justify-start items-start flex">
-                                  <div className="self-stretch px-3 py-[5px] justify-start items-center gap-2 inline-flex">
-                                    <div className="text-black text-opacity-90 text-sm font-normal leading-snug">{subMenuItem.label}</div>
-                                  </div>
-                                </div>
-                              </div>
+                              </Link>
                             </li>
                           )
                           )}
