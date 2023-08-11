@@ -2,18 +2,18 @@
 title: Ebesucher-Home
 blocks:
   - image:
-      src: /uploads/banner.png
-      alt: banner image
+      src: /uploads/bannerImage.png
+      alt: new
     headline: Make money or advertise!
     tagline: Visit new websites and get new visitors
     buttons:
-      - label: Discover Websites
+      - label: Discover Buttons
         type: button
         link: /
-      - label: Manage Advertising
+      - label: Manage advertising
         type: button
         link: /
-    _template: banner
+    _template: newbanner
   - headline: Choose your interests!
     Interests:
       - label: Job & Business
@@ -70,7 +70,7 @@ blocks:
       type: button
       link: /
     image:
-      src: /uploads/section 3.png
+      src: /uploads/target.png
       alt: >-
         Photo of palm trees at sunset by Adam Birkett -
         unsplash.com/photos/75EFpyXu3Wg
@@ -90,11 +90,11 @@ blocks:
       type: button
       link: /
     image:
-      src: /uploads/section 4.png
+      src: /uploads/coins.png
       alt: discover sites
     sides: right
     _template: hero
-  - headline: To ask?
+  - headline: Support Team
     text: >
       You can find answers to important questions in the [FAQs for users](/
       "users") or the [FAQ for advertisers](/ "advertisment"). Do you have
@@ -106,7 +106,7 @@ blocks:
       type: button
       link: /
     image:
-      src: /uploads/section 5.png
+      src: /uploads/support.png
       alt: to ask
     color: tint
     sides: left
@@ -117,6 +117,9 @@ meta_description: >-
   free visitors to your website, blog or video!
 meta_robots: 'INDEX, FOLLOW'
 ---
+
+
+
 
 
 

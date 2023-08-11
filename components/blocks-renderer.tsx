@@ -9,6 +9,7 @@ import { Hero } from "./blocks/hero";
 import { ImprintView } from "./blocks/imprintView";
 import { InfoSection } from "./blocks/infosSection";
 import { Interests } from "./blocks/interests";
+import { NewBanner } from "./blocks/newBanner";
 import { Testimonial } from "./blocks/testimonial";
 import { tinaField } from "tinacms/dist/react";
 
@@ -32,6 +33,8 @@ const Block = (block: PageBlocks) => {
   switch (block.__typename) {
     case "PageBlocksBanner":
       return <Banner data={block} />;
+    case "PageBlocksNewbanner":
+      return <NewBanner data={block} />;
     case "PageBlocksInterests":
       return <Interests data={block} />;
     case "PageBlocksInfo":

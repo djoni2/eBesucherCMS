@@ -13,6 +13,7 @@ import { cardSchema } from "../components/blocks/card";
 import { imprintSchema } from "../components/blocks/imprintView";
 import { WebsiteTrafficExchangeSchema } from "../components/blocks/component";
 import { earnMoneySchema } from "../components/blocks/earn_money";
+import { newBannerSchema } from "../components/blocks/newBanner";
 
 
 const config = defineConfig({
@@ -276,6 +277,7 @@ const config = defineConfig({
               heroBlockSchema,
               // @ts-ignore
               bannerSchema,
+              newBannerSchema,
               infosSchema,
               cardSchema,
               interestsSchema,

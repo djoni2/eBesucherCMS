@@ -37,7 +37,7 @@ export const Footer = ({ data, icon, rawData }) => {
       orange: "text-white from-orange-500 to-orange-600",
       yellow: "text-white from-yellow-500 to-yellow-600",
     },
-    themeColor: "#3B3F42"
+    themeColor: "bg-blue-900"
   };
 
   // const footerColorCss =
@@ -49,7 +49,7 @@ export const Footer = ({ data, icon, rawData }) => {
   }
 
   return (
-    <footer style={{ background: `${footerColor.themeColor}` }}>
+    <footer className=" bg-themeBlue">
       <Container className="relative" size="small">
         <div className="grid sm:grid-cols-6 grid-cols-2 gap-5">
           {data &&
