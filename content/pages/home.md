@@ -1,25 +1,60 @@
 ---
-title: Ebesucher
+title: Ebesucher-Home
 blocks:
   - image:
-      src: /uploads/Frame%20243.png
-      alt: banner image
+      src: /uploads/bannerImage.png
+      alt: new
     headline: Make money or advertise!
     tagline: Visit new websites and get new visitors
     buttons:
-      - label: Discover Websites
+      - label: Discover Buttons
         type: button
         link: /
-      - label: Manage Advertising
+      - label: Manage advertising
         type: button
         link: /
-    _template: banner
+    _template: newbanner
   - headline: Choose your interests!
     Interests:
       - label: Job & Business
         image:
           src: /uploads/bank.png
           alt: Job & Business
+        link: /
+      - label: Free
+        image:
+          src: /uploads/tags.png
+          alt: free
+        link: /
+      - label: Shopping & Ecommerce
+        image:
+          src: /uploads/shopping.png
+          alt: shopping & ecommerce
+        link: /
+      - label: Webmasters & Homepages
+        image:
+          src: /uploads/code.png
+          alt: Webmasters & Homepages
+        link: /
+      - label: Magazine & Books
+        image:
+          src: /uploads/read.png
+          alt: Magazine & Books
+        link: /
+      - label: Telecom & Cell Phone
+        image:
+          src: /uploads/mobile.png
+          alt: Telecom & Cell Phone
+        link: /
+      - label: Auctions
+        image:
+          src: /uploads/sound.png
+          alt: Auctions
+        link: /
+      - label: Fun & Entertainment
+        image:
+          src: /uploads/smile.png
+          alt: Fun & Entertainment
         link: /
     _template: interests
   - headline: 'Book advertising for your website, blog, or video!'
@@ -35,7 +70,7 @@ blocks:
       type: button
       link: /
     image:
-      src: /uploads/section 3.png
+      src: /uploads/target.png
       alt: >-
         Photo of palm trees at sunset by Adam Birkett -
         unsplash.com/photos/75EFpyXu3Wg
@@ -55,11 +90,11 @@ blocks:
       type: button
       link: /
     image:
-      src: /uploads/section 4.png
+      src: /uploads/coins.png
       alt: discover sites
     sides: right
     _template: hero
-  - headline: To ask?
+  - headline: Support Team
     text: >
       You can find answers to important questions in the [FAQs for users](/
       "users") or the [FAQ for advertisers](/ "advertisment"). Do you have
@@ -71,12 +106,24 @@ blocks:
       type: button
       link: /
     image:
-      src: /uploads/section 5.png
+      src: /uploads/support.png
       alt: to ask
     color: tint
     sides: left
     _template: hero
+meta_title: Surf the Web | Earn Money | Get New Visitors | eBesucher.com
+meta_description: >-
+  Tell us your interests, discover amazing websites and get paid for it - or get
+  free visitors to your website, blog or video!
+meta_robots: 'INDEX, FOLLOW'
 ---
+
+
+
+
+
+
+
 
 
 

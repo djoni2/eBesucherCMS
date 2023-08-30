@@ -7,11 +7,50 @@ import { Icon } from "../util/icon";
 import { tinaField } from "tinacms/dist/react";
 import { GlobalHeader } from "../../tina/__generated__/types";
 import { Actions } from "../util/actions";
+import { useState } from 'react';
+import { FiMenu, FiX } from 'react-icons/fi'; // Import the 3-bar icon from react-icons library
+import Image from "next/image";
+
 
 export const Header = ({ data }: { data: GlobalHeader }) => {
   const router = useRouter();
   const theme = useTheme();
+  const datas = {
+    nav: [
+      {
+        label: "Home",
+        href: "/",
+      },
+      {
+        label: "About",
+        href: "/about",
+      },
+      {
+        label: "Services",
+        href: "/services",
+        subMenu: [
+          {
+            label: "Service 1",
+            href: "services/service-1",
+          },
+          {
+            label: "Service 2",
+            href: "services/service-2",
+          },
+        ],
+      },
+      // Add more main menu items here
+    ],
+  };
+  const [activeSubMenuIndex, setActiveSubMenuIndex] = useState(null);
 
+  const handleMouseEnter = (index) => {
+    setActiveSubMenuIndex(index);
+  };
+
+  const handleMouseLeave = () => {
+    setActiveSubMenuIndex(null);
+  };
   const headerColor = {
     default:
       "text-black dark:text-white from-gray-50 to-white dark:from-gray-800 dark:to-gray-900",
@@ -59,31 +98,140 @@ export const Header = ({ data }: { data: GlobalHeader }) => {
     yellow: "text-yellow-500",
   };
   const [isClient, setIsClient] = React.useState(false);
+
+  const [isDrawerOpen, setIsDrawerOpen] = React.useState(false);
+
+  const toggleDrawer = () => {
+    setIsDrawerOpen(!isDrawerOpen);
+  };
+
   React.useEffect(() => {
     setIsClient(true);
   }, []);
 
   return (
-    <div
-      className={`relative overflow-hidden bg-themeBlue`}
-    >
-      <Container size="custom" className="relative py-4 sm:py-0 z-10 max-w-8xl">
-        <div className="flex items-center justify-between gap-x-6 sm:my-2 ">
-          {/* Logo  */}
-          <Link
-            href="/"
-            className="flex gap-1 items-center whitespace-nowrap tracking-[.002em]"
-          >
-            <img
-              className=""
-              src={data.LogoImage}
-              alt="logo"
-              aria-hidden="true"
-            />
-          </Link>
+    <>
+      <div className="bg-themeBlue h-auto border border-solid">
+        <Container size="medium" width="large">
+          <div className="flex flex-col sm:flex-row items-center gap-3">
+            <Image className="hidden md:block" src="https://www.ebesucher.com/images/cookie.svg" alt="Icon" width={110} height={110} />
+            <div className="text-white flex flex-col">
+              <span>
+                This website uses cookies, which are necessary for the technical operation of the website
+                and which are always set. Other cookies, which are used to personalize content and advertisement
+                and to analyze the access to our website, are only set with your consent. We also share information
+                about your use of our website with our social media, advertising and analytics partners. Our privacy policy.
+              </span><br />
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+                <div className="text-white text-opacity-90  text-xs md:text-base font-normal leading-normal gap-2">
+                  <input type="checkbox" checked disabled className="w-4 h-4 p-2" />
+                  <span>Required</span>
+                </div>
+                <div className="text-white text-opacity-90  text-xs md:text-base font-normal leading-normal gap-2">
+                  <input type="checkbox" className="w-4 h-4" />
+                  <span>Statistics</span>
+                </div>
+                <div className="text-white text-opacity-90  text-xs md:text-base font-normal leading-normal gap-2">
+                  <input type="checkbox" className="w-4 h-4" />
+                  <span>Marketing</span>
+                </div>
+              </div>
+            </div>
+            <div className="flex flex-col gap-3">
+              <div className="text-white text-opacity-90  text-xs md:text-base font-normal leading-normal">
+                <button
+                  style={{ borderRadius: "30px" }}
+                  data-tina-field={tinaField(data, "Button")}
+                  className={`relative bg-[#344b5b] text-[#cecece] flex items-center px-4 py-1 text-xs transition duration-150 ease-out transform focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 whitespace-nowrap 
+            `}
+                >
+                  Accept selected cookies
+                </button>
+              </div>
+              <div className="text-white text-opacity-90  text-xs md:text-base font-normal leading-normal">
+                <button
+                  style={{ borderRadius: "30px" }}
+                  data-tina-field={tinaField(data, "Button")}
+                  className={`relative w-full text-center bg-green-700 text-white flex items-center px-8 py-1 text-xs transition duration-150 ease-out transform focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 whitespace-nowrap 
+            `}
+                >
+                  Accept all cookies
+                </button>
+              </div>
+            </div>
+          </div>
 
-          {/* Nav Links */}
-          <ul className="gap-2 md:gap-6 tracking-[.002em] -mx-4 hidden sm:flex">
+        </Container>
+      </div>
+      <div
+        className={`  bg-themeBlue`}
+      >
+        <Container size="custom" className=" py-4 sm:py-0 z-10 max-w-8xl">
+          <div className="flex items-center justify-between gap-x-6 sm:my-2 ">
+            {/* Logo  */}
+            <Link
+              href="/"
+              className="flex gap-1 items-center whitespace-nowrap tracking-[.002em]"
+            >
+              <img
+                className=""
+                src={data.LogoImage}
+                alt="logo"
+                aria-hidden="true"
+              />
+            </Link>
+
+            {/* Nav Links */}
+            <ul className="gap-2 md:gap-6 tracking-[.002em] -mx-4 hidden sm:flex">
+              {data.nav &&
+                data.nav.map((mainMenuItem, i) => {
+                  let hasSubMenu = mainMenuItem.subs && mainMenuItem.subs.length > 0;
+                  return (
+                    <li
+                      key={`${mainMenuItem.label}-${i}`}
+                      className={`${activeItemClasses["blue"]} relative`}
+                      onMouseEnter={() => handleMouseEnter(i)}
+                      onMouseLeave={() => handleMouseLeave()}
+                    >
+                      <a
+                        data-tina-field={tinaField(mainMenuItem, "label")}
+                        href={`/${mainMenuItem.href}`}
+                        className={`select-none text-xs md:text-sm py-3 px-2 
+                  inline-block tracking-wide transition duration-150 ease-out 
+                  hover:opacity-100  md:py-6 md:px-4`}
+                      >
+                        {mainMenuItem.label}
+                      </a>
+
+                      {/* Submenu */}
+                      {hasSubMenu && activeSubMenuIndex === i && (
+
+                        <ul
+                          className="absolute left-0 mt-2 bg-white border border-gray-300 rounded-lg shadow-lg z-[999]"
+                          onMouseEnter={() => handleMouseEnter(i)} // Keep submenu open when hovering over it
+                          onMouseLeave={() => handleMouseLeave()} // Close submenu when mouse leaves
+                        >
+                          {mainMenuItem.subs.map((subMenuItem, j) => (
+                            <li
+                              key={j}
+                              className="px-4 py-2 text-sm hover:bg-gray-100 text-black"
+                            >
+                              <Link href={subMenuItem.href} className="w-[186px] h-[38px] rounded-sm flex-col justify-start items-start inline-flex">
+                                <div className="self-stretch justify-start items-center gap-2 inline-flex">
+                                  <div className="text-black text-opacity-90 text-sm font-normal leading-snug">{subMenuItem.label}</div>
+                                </div>
+                              </Link>
+                            </li>
+                          )
+                          )}
+                        </ul>
+
+                      )}
+                    </li>
+                  );
+                })}
+            </ul>
+            {/* <ul className="gap-2 md:gap-6 tracking-[.002em] -mx-4 hidden sm:flex">
             {data.nav &&
               data.nav.map((item, i) => {
                 // const activeItem =
@@ -103,65 +251,80 @@ export const Header = ({ data }: { data: GlobalHeader }) => {
                       hover:opacity-100  md:py-6 md:px-4`}
                     >
                       {item.label}
-                      {/* {activeItem && (
-                        <svg
-                          className={`absolute bottom-0 left-1/2 w-[180%] h-full -translate-x-1/2 -z-1 opacity-10 dark:opacity-15 ${activeBackgroundClasses[theme.color]
-                            }`}
-                          preserveAspectRatio="none"
-                          viewBox="0 0 230 230"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <rect
-                            x="230"
-                            y="230"
-                            width="230"
-                            height="230"
-                            transform="rotate(-180 230 230)"
-                            fill="url(#paint0_radial_1_33)"
-                          />
-                          <defs>
-                            <radialGradient
-                              id="paint0_radial_1_33"
-                              cx="0"
-                              cy="0"
-                              r="1"
-                              gradientUnits="userSpaceOnUse"
-                              gradientTransform="translate(345 230) rotate(90) scale(230 115)"
-                            >
-                              <stop stopColor="currentColor" />
-                              <stop
-                                offset="1"
-                                stopColor="currentColor"
-                                stopOpacity="0"
-                              />
-                            </radialGradient>
-                          </defs>
-                        </svg>
-                      )} */}
                     </Link>
                   </li>
                 );
               })}
-          </ul>
+          </ul> */}
 
-          {/* Sign Up Button */}
-          {data.Button && (
-            <button
-              style={{ borderRadius: "30px" }}
-              // data-tina-field={tinaField(data,"signup")}
-              className={`z-10 relative bg-blue-500 text-white flex items-center px-4 py-1 text-xs transition duration-150 ease-out transform focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 whitespace-nowrap 
+            {/* Sign Up Button */}
+            {data.Button && (
+              <>
+                <button
+                  style={{ borderRadius: "30px" }}
+                  data-tina-field={tinaField(data, "Button")}
+                  className={`relative bg-blue-500 text-white flex items-center px-4 py-1 text-xs transition duration-150 ease-out transform focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 whitespace-nowrap 
             `}
-            >
-              {data.Button.label}
-            </button>
-          )}
-        </div>
-        <div
-          className={`absolute h-1 bg-gradient-to-r from-transparent ${data.color === "primary" ? `via-white` : `via-black dark:via-white`
-            } to-transparent bottom-0 left-4 right-4 -z-1 opacity-5`}
-        />
-      </Container>
-    </div>
+                >
+                  {data.Button.label}
+                </button>
+              </>
+            )}
+
+
+            {/* Small Screen drawer*/}
+
+            <div className="sm:hidden">
+              <div>
+                <button
+                  className="text-white"
+                  onClick={toggleDrawer}
+                  aria-label="Toggle drawer"
+                >
+                  <FiMenu size={24} />
+                </button>
+              </div>
+              <div
+                className={`fixed inset-y-0 right-0 w-64 bg-white transition-transform duration-300 ease-in-out transform ${isDrawerOpen ? 'translate-x-0' : 'translate-x-full'
+                  }`}
+              >
+                <div className="p-4 flex items-baseline justify-between">
+                  <h2 className="text-sm font-semibold mb-4">MENU</h2>
+                  <button
+                    className="text-gray-500"
+                    onClick={toggleDrawer}
+                    aria-label="Close drawer"
+                  >
+                    <FiX size={24} />
+                  </button>
+                </div>
+                {/* Additional content of the drawer goes here */}
+                <div className="px-8 py-3 flex flex-col gap-4">
+                  {data.nav &&
+                    data.nav.map((item, i) => {
+                      const activeItem =
+                        (item.href === ""
+                          ? router.asPath === "/"
+                          : router.asPath.includes(item.href)) && isClient;
+                      return (
+                        <div key={i} style={{ borderRadius: activeItem ? "10px" : "", background: activeItem ? "rgba(22, 119, 255, 0.10)" : '' }}>
+                          <h4 className="px-4 py-2" style={{ color: activeItem ? "#1677FF" : '' }}>{item.label}</h4>
+                        </div>
+                      );
+                    }
+                    )}
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+          <div
+            className={`absolute h-1 bg-gradient-to-r from-transparent ${data.color === "primary" ? `via-white` : `via-black dark:via-white`
+              } to-transparent bottom-0 left-4 right-4 -z-1 opacity-5`}
+          />
+        </Container>
+      </div>
+    </>
   );
 };

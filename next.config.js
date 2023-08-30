@@ -1,11 +1,13 @@
 module.exports = {
-  webpack(config) {
+  webpack(config, { isServer }) {
     config.module.rules.push({
       test: /\.svg$/i,
       issuer: /\.[jt]sx?$/,
       use: ["@svgr/webpack"],
     });
-
+    if (isServer) {
+        require("./scripts/sitemap-generator");
+      }
     return config;
   },
   async rewrites() {

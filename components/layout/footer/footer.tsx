@@ -37,7 +37,7 @@ export const Footer = ({ data, icon, rawData }) => {
       orange: "text-white from-orange-500 to-orange-600",
       yellow: "text-white from-yellow-500 to-yellow-600",
     },
-    themeColor: "#3B3F42"
+    themeColor: "bg-blue-900"
   };
 
   // const footerColorCss =
@@ -49,7 +49,7 @@ export const Footer = ({ data, icon, rawData }) => {
   }
 
   return (
-    <footer style={{ background: `${footerColor.themeColor}` }}>
+    <footer className=" bg-themeBlue">
       <Container className="relative" size="small">
         <div className="grid sm:grid-cols-6 grid-cols-2 gap-5">
           {data &&
@@ -141,18 +141,22 @@ export const Footer = ({ data, icon, rawData }) => {
               {data &&
                 data.footer_links.length > 0 &&
                 data.footer_links.map((footer, index) => (
-                  <>
-                    <div key={index} className=" text-white">
+                  <div key={index}>
+                    <div className=" text-white">
                       <h4 className="font-medium text-sm sm:text-lg mb-5">{footer.headLine}</h4>
                       <div className="flex flex-wrap justify-start">
                         {
-                          footer && footer.footer_links!==null&&footer.footer_links.length > 0 && footer.footer_links.map((subLinks, index) => (
-                            <div key={index} className="w-full text-xs sm:text-sm mb-1" style={{ color: `${socialIconColorClasses.themeColor}` }}>{subLinks.sub_links}</div>
+                          footer && footer.footer_links !== null && footer.footer_links.length > 0 && footer.footer_links.map((subLinks, index) => (
+                            <div key={index} className="w-full text-xs sm:text-sm mb-1" style={{ color: `${socialIconColorClasses.themeColor}` }}>
+                              <Link href={`/${subLinks.url}`}>
+                                {subLinks.sub_links}
+                              </Link>
+                            </div>
                           ))
                         }
                       </div>
                     </div>
-                  </>
+                  </ div>
                 ))
               }
             </div>
