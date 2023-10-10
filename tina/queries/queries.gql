@@ -1,0 +1,23 @@
+query pageQuery {
+  ...LayoutQueryFragment
+  pageConnection {
+    edges {
+      node {
+        id
+        title
+        _sys {
+          filename
+        }
+      }
+    }
+  }
+}
+
+
+
+query contentQuery($relativePath: String!) {
+  ...LayoutQueryFragment
+  page(relativePath: $relativePath) {
+    ...PageParts
+  }
+}
