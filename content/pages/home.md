@@ -1,5 +1,10 @@
 ---
 title: Ebesucher-Home
+meta_title: Surf the Web | Earn Money | Get New Visitors | eBesucher.com
+meta_description: >-
+  Tell us your interests, discover amazing websites and get paid for it - or get
+  free visitors to your website, blog or video!
+meta_robots: 'INDEX, FOLLOW'
 blocks:
   - image:
       src: /uploads/bannerImage.png
@@ -74,7 +79,7 @@ blocks:
       alt: >-
         Photo of palm trees at sunset by Adam Birkett -
         unsplash.com/photos/75EFpyXu3Wg
-    color: tint
+    color: default
     sides: left
     _template: hero
   - headline: Discover new websites and get paid!
@@ -111,25 +116,5 @@ blocks:
     color: tint
     sides: left
     _template: hero
-meta_title: Surf the Web | Earn Money | Get New Visitors | eBesucher.com
-meta_description: >-
-  Tell us your interests, discover amazing websites and get paid for it - or get
-  free visitors to your website, blog or video!
-meta_robots: 'INDEX, FOLLOW'
 ---
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
