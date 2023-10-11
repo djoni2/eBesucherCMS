@@ -44,9 +44,9 @@ export const Footer = ({ data, icon, rawData }) => {
   //   data.color === "primary"
   //     ? footerColor.primary[theme.color]
   //     : footerColor.default;
-  const handleChange = () => {
-
-  }
+  // const handleChange = () => {
+  //
+  // }
 
   return (
     <footer className=" bg-themeBlue">
@@ -69,7 +69,9 @@ export const Footer = ({ data, icon, rawData }) => {
                   <div style={{ color: `${socialIconColorClasses.themeColor}` }} className="mt-2 text-xs sm:text-sm text-white">{data.tagline}</div>
                   <div>
                     {data &&
-                      <select className="px-4 py-2 mt-6" value={'English'} name="language" onChange={handleChange}>
+                      <select className="px-4 py-2 mt-6" value={'English'} name="language"
+                              // onChange={handleChange}
+                      >
                         {data.language_list.map((value, index) => (
                           <option key={index} value={value.label}>{value.label}</option>)
                         )}

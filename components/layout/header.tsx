@@ -185,7 +185,7 @@ export const Header = ({ data }: { data: GlobalHeader }) => {
             <ul className="gap-2 md:gap-6 tracking-[.002em] -mx-4 hidden sm:flex">
               {data.nav &&
                 data.nav.map((mainMenuItem, i) => {
-                  let hasSubMenu = mainMenuItem.subs && mainMenuItem.subs.length > 0;
+                  const hasSubMenu = mainMenuItem.subs && mainMenuItem.subs.length > 0;
                   return (
                     <li
                       key={`${mainMenuItem.label}-${i}`}

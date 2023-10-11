@@ -18,10 +18,10 @@ import { newBannerSchema } from "../components/blocks/newBanner";
 
 const config = defineConfig({
   clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID!,
-  branch:
-    process.env.NEXT_PUBLIC_TINA_BRANCH! || // custom branch env override
-    process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_REF! || // Vercel branch env
-    process.env.HEAD!, // Netlify branch env
+  branch: process.env.NEXT_PUBLIC_TINA_BRANCH,
+    // process.env.NEXT_PUBLIC_TINA_BRANCH! || // custom branch env override
+    // process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_REF! || // Vercel branch env
+    // process.env.HEAD!, // Netlify branch env
   token: process.env.TINA_TOKEN!,
   media: {
     // If you wanted cloudinary do this
@@ -165,11 +165,14 @@ const config = defineConfig({
               },
             ],
           },
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
           footerSchema,
           {
             type: "object",
             label: "Theme",
             name: "theme",
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
             fields: [
               {
@@ -275,6 +278,7 @@ const config = defineConfig({
             templates: [
 
               heroBlockSchema,
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
               // @ts-ignore
               bannerSchema,
               newBannerSchema,
@@ -282,6 +286,8 @@ const config = defineConfig({
               cardSchema,
               interestsSchema,
               imprintSchema,
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              // @ts-ignore
               featureBlockSchema,
               contentBlockSchema,
               testimonialBlockSchema,

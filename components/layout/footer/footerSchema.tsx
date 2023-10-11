@@ -3,6 +3,8 @@ import type { TinaTemplate } from "tinacms";
 
 export const footerSchema: TinaTemplate =
 {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     type: "object",
     label: "Footer",
     name: "footer",
