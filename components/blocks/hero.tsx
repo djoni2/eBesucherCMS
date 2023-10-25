@@ -7,7 +7,8 @@ import { TinaMarkdown } from "tinacms/dist/rich-text";
 import type { TinaTemplate } from "tinacms";
 import { PageBlocksHero } from "../../tina/__generated__/types";
 import { tinaField } from "tinacms/dist/react";
-import background from "../../assets/img/scores/backgroundHero.png";
+import backgroundHeroImage from "../../assets/img/scores/backgroundHero.png";
+import Image from "next/image";
 
 export const Hero = ({ data }: { data: PageBlocksHero }) => {
   const theme = useTheme();
@@ -21,10 +22,13 @@ export const Hero = ({ data }: { data: PageBlocksHero }) => {
     orange: "from-orange-300 to-orange-600",
     yellow: "from-yellow-400 to-yellow-600",
   };
-
   return (
-    <Section color={data.color}>
-      <div className="h-full w-full bg-center bg-cover" style={{ backgroundImage: `url(${background})` }}>
+    <Section >
+      {console.log(data.color)}
+      <div className="parent-container">
+        {/* <Image src={backgroundHeroImage} alt="Background Image" className="background-image"/> */}
+        <div className="content-container" style={data.color !== 'tint' ? {backgroundImage: 'none'} : {}}>
+        <div className="h-full w-full bg-center bg-cover">
         <Container
           size="large"
           className=""
@@ -80,9 +84,9 @@ export const Hero = ({ data }: { data: PageBlocksHero }) => {
                       className="relative row-start-2 sm:row-start-1 md:col-span-2 flex justify-center w-281 h-233 md:w-342 md:h-183 lg:w-449 lg:h-371"
                     >
                       <img
-                        className="absolute w-full rounded-lg max-w-xs 
-              md:max-w-none h-auto blur-2xl brightness-150 contrast-[0.9] 
-              dark:brightness-150 saturate-200 opacity-50 dark:opacity-30 mix-blend-multiply dark:mix-blend-hard-light"
+                          className="absolute w-full rounded-lg max-w-xs 
+                md:max-w-none h-auto blur-2xl brightness-150 contrast-[0.9] 
+                dark:brightness-150 saturate-200 opacity-50 dark:opacity-30 mix-blend-multiply dark:mix-blend-hard-light"
                         src={data.image.src}
                         aria-hidden="true"
                       />
@@ -156,6 +160,8 @@ export const Hero = ({ data }: { data: PageBlocksHero }) => {
           </div>
         </Container>
         </div>
+        </div>
+      </div>
     </Section>
   );
 };
