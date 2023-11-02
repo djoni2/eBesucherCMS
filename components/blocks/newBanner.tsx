@@ -10,7 +10,7 @@ export const NewBanner = ({ data }: { data: PageBlocksNewbanner }) => {
         <Section>
             <Container width="100%" style={{ padding: 'unset' }}>
                 <div>
-                    <div className="relative  sm:bg-none bg-no-repeat bg-cover bg-center" style={{backgroundSize:"100% 100%"}}>
+                    <div className=" parent-container relative  sm:bg-none bg-no-repeat bg-cover bg-center" style={{backgroundSize:"100% 100%"}}>
                         {data&&data.image && (
                             <img className="w-full h-[100%] object-cover object-right absolute " src={data.image.src} alt={data && data.image.alt} />
 

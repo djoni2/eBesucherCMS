@@ -24,7 +24,7 @@ export const Hero = ({ data }: { data: PageBlocksHero }) => {
   };
   return (
     <Section >
-      {console.log(data.color)}
+      {/* {console.log(data.color)} */}
       <div className="parent-container">
         {/* <Image src={backgroundHeroImage} alt="Background Image" className="background-image"/> */}
         <div className="content-container" style={data.color !== 'tint' ? {backgroundImage: 'none'} : {}}>

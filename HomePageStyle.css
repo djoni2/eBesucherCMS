@@ -7,7 +7,13 @@
 .interests-section .slick-prev {
     left: 93%;
 }
+.interests-section .slick-next:before {
+    display: none !important;
+}
 
+.interests-section .slick-prev:before {
+    display: none !important;
+}
 .interests-section .slick-next {
     right: 2%;
 }
@@ -61,7 +67,7 @@
 .parent-container {
     position: relative;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1600px;
     /* Adjust the max-width as needed */
     margin: 0 auto;
 }

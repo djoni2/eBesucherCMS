@@ -207,7 +207,7 @@ export const Header = ({ data }: { data: GlobalHeader }) => {
                       {hasSubMenu && activeSubMenuIndex === i && (
 
                         <ul
-                          className="absolute left-0 mt-2 bg-white border border-gray-300 rounded-lg shadow-lg z-[999]"
+                          className="absolute left-0 bg-white border border-gray-50 rounded-lg shadow-lg z-[999]"
                           onMouseEnter={() => handleMouseEnter(i)} // Keep submenu open when hovering over it
                           onMouseLeave={() => handleMouseLeave()} // Close submenu when mouse leaves
                         >
