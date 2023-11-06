@@ -1,5 +1,6 @@
 The content is managed through Markdown and JSON files stored in your GitHub repository, and queried through Tina GraphQL API.
 
+
 ### Features
 
 - [Tina Headless CMS](https://app.tina.io) for authentication, content modeling, visual editing and team management.
