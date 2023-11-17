@@ -10,14 +10,14 @@ export const NewBanner = ({ data }: { data: PageBlocksNewbanner }) => {
         <Section>
             <Container width="100%" style={{ padding: 'unset' }}>
                 <div>
-                    <div className=" parent-container relative  sm:bg-none bg-no-repeat bg-cover bg-center" style={{backgroundSize:"100% 100%"}}>
+                    <div className="parent-container relative  sm:bg-none bg-no-repeat bg-cover bg-center" style={{backgroundSize:"100% 100%"}}>
                         {data&&data.image && (
-                            <img className="w-full h-[100%] object-cover object-right absolute " src={data.image.src} alt={data && data.image.alt} />
+                            <img className="w-full h-[100%] object-cover absolute " src={data.image.src} alt={data && data.image.alt} />
 
                         )}
                         <div className=" inset-0 flex items-center justify-center py-[3rem] sm:py-16 md:py-24 lg:py-36">
                             <div className="px-6 sm:px-8 max-w-7xl">
-                                <div className="row-start-1 col-span-2 md:col-span-3 text-center md:text-left">
+                                <div className="row-start-1 col-span-2 md:col-span-3 justify-center  flex items-center flex-col text-center md:text-left">
                                     {data.headline && (
                                         <h3
                                             data-tina-field={tinaField(data, "headline")}
